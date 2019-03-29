@@ -11,3 +11,5 @@ declare var f: () => void;
 declare let array: number[];
 declare let a: number, b: number, c: number, d: number;
 declare let i: any;
+declare let tuple: (string | number)[];
+declare let unionType: number | string;

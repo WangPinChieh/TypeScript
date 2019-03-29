@@ -44,3 +44,11 @@ var i;
 for (i in array) {
     console.log(array[i]);
 }
+var tuple = [1, 'abc', 24];
+console.log(tuple[0]);
+console.log(tuple[1]);
+var unionType;
+unionType = 123;
+console.log(unionType);
+unionType = 'magic union type';
+console.log(unionType);

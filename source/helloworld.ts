@@ -47,3 +47,15 @@ for(i in array)
 {
     console.log(array[i]);
 }
+
+let tuple = [1, 'abc', 24];
+console.log(tuple[0]);
+console.log(tuple[1]);
+
+
+let unionType: number | string;
+
+unionType = 123;
+console.log(unionType);
+unionType = 'magic union type';
+console.log(unionType);
