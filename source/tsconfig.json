@@ -1,0 +1,8 @@
+{
+    "compilerOptions": {
+        "target": "es3",
+        "module": "commonJS",
+        "outDir": "../bin",
+        "declaration": true
+    }
+}
