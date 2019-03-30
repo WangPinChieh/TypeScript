@@ -1,3 +1,16 @@
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
 var message = "Hello World!";
 console.log(message);
 var Greeting = /** @class */ (function () {
@@ -71,3 +84,29 @@ var musician = {
 };
 console.log(musician.sayHi());
 console.log(musician.firstName + " " + musician.lastName + " " + musician.age + " " + musician.instrument);
+var Shape = /** @class */ (function () {
+    function Shape(area) {
+        this.Area = area;
+    }
+    Shape.prototype.DoJob = function () {
+        console.log('Parent does job!');
+    };
+    return Shape;
+}());
+var Circle = /** @class */ (function (_super) {
+    __extends(Circle, _super);
+    function Circle() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    Circle.prototype.Display = function () {
+        console.log(this.Area);
+    };
+    Circle.prototype.DoJob = function () {
+        _super.prototype.DoJob.call(this);
+        console.log('Child does job!');
+    };
+    return Circle;
+}(Shape));
+var _Circle = new Circle(100);
+_Circle.Display();
+_Circle.DoJob();

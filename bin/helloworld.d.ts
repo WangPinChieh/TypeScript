@@ -24,3 +24,13 @@ interface IMusician extends IPerson {
     instrument: string;
 }
 declare let musician: IMusician;
+declare class Shape {
+    Area: number;
+    constructor(area: number);
+    DoJob(): void;
+}
+declare class Circle extends Shape {
+    Display(): void;
+    DoJob(): void;
+}
+declare let _Circle: Circle;

@@ -96,3 +96,28 @@ let musician: IMusician = {
 
 console.log(musician.sayHi());
 console.log(musician.firstName + " " + musician.lastName + " " + musician.age + " " + musician.instrument);
+
+
+
+class Shape {
+    Area: number;
+    constructor(area: number) {
+        this.Area = area;
+    }
+    DoJob(): void {
+        console.log('Parent does job!');
+    }
+}
+class Circle extends Shape {
+    Display(): void {
+        console.log(this.Area);
+    }
+    DoJob(): void {
+        super.DoJob();
+        console.log('Child does job!');
+    }
+}
+
+let _Circle = new Circle(100);
+_Circle.Display();
+_Circle.DoJob();
