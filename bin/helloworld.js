@@ -52,3 +52,22 @@ unionType = 123;
 console.log(unionType);
 unionType = 'magic union type';
 console.log(unionType);
+var customer = {
+    firstName: 'Jay',
+    lastName: 'Wang',
+    age: 30,
+    sayHi: function () { return 'Hi there!'; }
+};
+console.log(customer.firstName);
+console.log(customer.lastName);
+console.log(customer.age);
+console.log(customer.sayHi());
+var musician = {
+    firstName: 'Yvonne',
+    lastName: 'Shao',
+    age: 30,
+    sayHi: function () { return "Hi, I'm Yvonne."; },
+    instrument: 'Drums'
+};
+console.log(musician.sayHi());
+console.log(musician.firstName + " " + musician.lastName + " " + musician.age + " " + musician.instrument);

@@ -1,3 +1,4 @@
+
 let message: string = "Hello World!";
 console.log(message);
 
@@ -40,11 +41,10 @@ f();
 
 
 let array: number[] = [1, 2, 3, 4]
-let  [a, b, c, d] = array;
+let [a, b, c, d] = array;
 console.log(a + '/' + b + '/' + c + '/' + d);
 let i: any;
-for(i in array)
-{
+for (i in array) {
     console.log(array[i]);
 }
 
@@ -59,3 +59,40 @@ unionType = 123;
 console.log(unionType);
 unionType = 'magic union type';
 console.log(unionType);
+
+
+
+interface IPerson {
+    firstName: string,
+    lastName: string,
+    age: number,
+    sayHi: () => string
+}
+
+let customer: IPerson = {
+    firstName: 'Jay',
+    lastName: 'Wang',
+    age: 30,
+    sayHi: (): string => { return 'Hi there!'; }
+}
+
+console.log(customer.firstName);
+console.log(customer.lastName);
+console.log(customer.age);
+console.log(customer.sayHi());
+
+
+interface IMusician extends IPerson {
+    instrument: string
+}
+
+let musician: IMusician = {
+    firstName: 'Yvonne',
+    lastName: 'Shao',
+    age: 30,
+    sayHi: () => { return "Hi, I'm Yvonne."; },
+    instrument: 'Drums'
+}
+
+console.log(musician.sayHi());
+console.log(musician.firstName + " " + musician.lastName + " " + musician.age + " " + musician.instrument);
