@@ -65,6 +65,18 @@ unionType = 123;
 console.log(unionType);
 unionType = 'magic union type';
 console.log(unionType);
+var Person = /** @class */ (function () {
+    function Person() {
+        this.firstName = 'Real Person First Name';
+        this.lastName = 'Real Person Last Name';
+        this.age = 123;
+    }
+    Person.prototype.sayHi = function () { return 'Hi from Person class;'; };
+    ;
+    return Person;
+}());
+var aPerson = new Person();
+console.log(aPerson.firstName + ' ' + aPerson.lastName + ' ' + aPerson.age + ' ' + aPerson.sayHi());
 var customer = {
     firstName: 'Jay',
     lastName: 'Wang',
@@ -110,3 +122,59 @@ var Circle = /** @class */ (function (_super) {
 var _Circle = new Circle(100);
 _Circle.Display();
 _Circle.DoJob();
+var StaticClass = /** @class */ (function () {
+    function StaticClass() {
+    }
+    StaticClass.Display = function () {
+        console.log('Number from static class is ' + StaticClass.Num);
+    };
+    return StaticClass;
+}());
+StaticClass.Num = 333;
+StaticClass.Display();
+var isCircle = _Circle instanceof Circle;
+console.log('is _Circle an instance of Circle? ' + isCircle);
+var ModifierClass = /** @class */ (function () {
+    function ModifierClass() {
+        this.firstString = 'First';
+        this.secondString = 'Secod';
+    }
+    return ModifierClass;
+}());
+var modifierClass = new ModifierClass();
+//Compiler error. Can't access private members;
+//console.log(modifierClass.firstString + ' ' + modifierClass.secondString); 
+var ParentClass = /** @class */ (function () {
+    function ParentClass() {
+    }
+    ParentClass.prototype.Display = function () {
+        console.log(this.ParentMember);
+    };
+    return ParentClass;
+}());
+var ChildrenClass = /** @class */ (function (_super) {
+    __extends(ChildrenClass, _super);
+    function ChildrenClass() {
+        var _this = _super.call(this) || this;
+        _this.ParentMember = 'value set from ChildrenClass';
+        return _this;
+    }
+    return ChildrenClass;
+}(ParentClass));
+var instanceOfChildrenClass = new ChildrenClass();
+instanceOfChildrenClass.Display();
+var personParameter = {
+    firstName: 'Jay',
+    lastName: 'Wang'
+};
+function CallObjAsParameters(obj) {
+    console.log('FirstName: ' + obj.firstName + ', LastName: ' + obj.lastName);
+}
+CallObjAsParameters(personParameter);
+function addPoints(point1, point2) {
+    var x = point1.x + point2.x;
+    var y = point2.y + point2.y;
+    return { x: x, y: y };
+}
+var point = addPoints({ x: 10, y: 20 }, { x: 30, y: 40 });
+console.log(point.x + ' ' + point.y);

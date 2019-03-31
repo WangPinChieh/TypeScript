@@ -69,6 +69,16 @@ interface IPerson {
     sayHi: () => string
 }
 
+class Person implements IPerson {
+    firstName: string = 'Real Person First Name';
+    lastName: string = 'Real Person Last Name';
+    age: number = 123;
+    sayHi(): string { return 'Hi from Person class;'; };
+}
+
+let aPerson = new Person();
+console.log(aPerson.firstName + ' ' + aPerson.lastName + ' ' + aPerson.age + ' ' + aPerson.sayHi());
+
 let customer: IPerson = {
     firstName: 'Jay',
     lastName: 'Wang',
@@ -121,3 +131,79 @@ class Circle extends Shape {
 let _Circle = new Circle(100);
 _Circle.Display();
 _Circle.DoJob();
+
+
+class StaticClass {
+    static Num: number;
+    static Display(): void {
+        console.log('Number from static class is ' + StaticClass.Num);
+
+    }
+}
+StaticClass.Num = 333;
+StaticClass.Display();
+
+let isCircle = _Circle instanceof Circle;
+console.log('is _Circle an instance of Circle? ' + isCircle);
+
+
+
+class ModifierClass {
+    public firstString: string;
+    private secondString: string;
+
+    constructor() {
+        this.firstString = 'First';
+        this.secondString = 'Secod';
+    }
+}
+
+let modifierClass = new ModifierClass();
+//Compiler error. Can't access private members;
+//console.log(modifierClass.firstString + ' ' + modifierClass.secondString); 
+
+class ParentClass {
+    protected ParentMember: string;
+    public Display(): void {
+        console.log(this.ParentMember);
+    }
+}
+class ChildrenClass extends ParentClass {
+    constructor() {
+        super();
+        this.ParentMember = 'value set from ChildrenClass';
+    }
+}
+
+let instanceOfChildrenClass = new ChildrenClass();
+instanceOfChildrenClass.Display();
+
+
+let personParameter = {
+    firstName: 'Jay',
+    lastName: 'Wang'
+};
+
+function CallObjAsParameters(obj: { firstName: string, lastName: string }) {
+    console.log('FirstName: ' + obj.firstName + ', LastName: ' + obj.lastName);
+}
+CallObjAsParameters(personParameter);
+
+/*
+Duck-Typing
+When I see a bird that walks like a duck and swims like a duck and quacks like a duck, I call that bird a duck.
+*/
+
+interface IPoint {
+    x: number,
+    y: number
+}
+function addPoints(point1: IPoint, point2: IPoint): IPoint {
+    let x = point1.x + point2.x;
+    let y = point2.y + point2.y;
+
+    return { x: x, y: y };
+}
+
+let point = addPoints({ x: 10, y: 20 }, { x: 30, y: 40 });
+console.log(point.x + ' ' + point.y);
