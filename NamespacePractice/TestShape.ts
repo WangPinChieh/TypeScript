@@ -8,3 +8,5 @@ function drawAllShapes(shape: Drawing.IShape) {
 
 drawAllShapes(new Drawing.Circle());
 drawAllShapes(new Drawing.Triangle());
+
+/*tsc .\TestShape.ts -outFile app.js*/
